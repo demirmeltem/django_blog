@@ -5,7 +5,15 @@
 </head>
 <body>
 
-	{{title}} </br>
+{% if messages %}
+<ul class="messages">
+	{% for message in messages %}
+	<li {% if message.tags%} class="{{message.tags}}" {% endif %}>{{ message }}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+	<h1>{{title}}</h1> </br>
 
 	
 	{{instance.title}} </br>
