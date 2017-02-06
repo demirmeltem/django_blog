@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block head %}Django Blog{% endblock head %}</title>
+</head>
+<body>
+
+{% if messages %}
+	<div class='messages'>	
+	<ul class="messages">
+	{% for message in messages %}
+	<li {% if message.tags%} class="{{message.tags}}" {% endif %}>{{ message }}</li>
+	{% endfor %}
+	</ul>
+	</div>
+{% endif %}
+<div class='container'>
+
+{% block content %}
+	
+
+Hey!  I am here {{title}} . </br>
+
+{% for object in object_list %}
+{% url "detail" id=object.id %}
+<a href='{{object.get_absolute_url}}'>{{object.title}} </a></br>
+{{object.content}} </br>
+{{object.timestamp}} </br>
+{{object.updated}} </br>
+{{object.id}} </br>
+
+{% endfor %}
+
+{% endblock content %}
+
+</div>
+
+
+</body>
+</html>
