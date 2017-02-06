@@ -22,7 +22,7 @@ def post_list(request):
 			"title" : "List",
 		}
 
-	return render (request, "base.html", context)
+	return render (request, "post_list.html", context)
 	#return HttpResponse("<h1>Hello</h1>")
 
 def post_create(request):
@@ -33,8 +33,8 @@ def post_create(request):
 		instance.save()
 		messages.success(request, "Successfully Created")
 		return HttpResponseRedirect(instance.get_absolute_url())
-	else:
-		messages.success(request, "NotSuccessfully Created")
+	'''else:
+		messages.success(request, "NotSuccessfully Created")'''
 		
 	context = {
 		"form" : form,
